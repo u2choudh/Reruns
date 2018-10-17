@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2018_10_15_160917) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "episodes", force: :cascade do |t|
     t.string "title"
     t.string "rating"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 2018_10_15_160917) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "season"
-    t.integer "series_id"
+    t.bigint "series_id"
     t.string "netflix_id"
     t.index ["series_id"], name: "index_episodes_on_series_id"
   end
@@ -36,4 +39,5 @@ ActiveRecord::Schema.define(version: 2018_10_15_160917) do
     t.string "image"
   end
 
+  add_foreign_key "episodes", "series"
 end
