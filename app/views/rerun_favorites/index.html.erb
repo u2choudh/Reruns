@@ -1,0 +1,59 @@
+<%= stylesheet_link_tag "rerun_favorites.css" %>
+
+<nav class="navbar navbar-dark bg-dark">
+  <h1> Reruns </h1>
+  <%= button_to "Back To Search", '/', :method => :get, class: "btn btn-primary" %>
+</nav>
+
+<div class="container show-list">
+  <% if @no_series %>
+    <p class="text-center no-shows"><i>No shows currently added</i></p>
+  <% else %>
+  <% @all_series.each do |series| %>
+    <div class="row">
+      <div class="col-md-2">
+        <img src="<%= series.image %>">
+      </div>
+      <div class="col-md-10">
+        <div class="card" id-val="<%= series.id %>">
+          <div class="card-body">
+            <h4 class="card-title"><%= series.title %> <i class="year"><%= series.year %></i> <button class="btn btn-danger delete-series pull-right" value="<%= series.id %>"> <i class="fa fa-trash"></i> </button></h4>
+            <p class="card-text">Select seasons to include:</p>
+            <ul class="list-inline">
+            <% for i in 1..series.seasons.to_i %>
+              <li class="list-inline-item"><button class="btn btn-dark" value="<%= i %>"><%= i %></button></li>
+            <% end %>
+            </ul>
+            <button class="btn btn-light include-all"> Include All Seasons </button>
+            <button class="btn btn-warning generate-episode"> Generate Episode </button>
+            <!-- <p class="card-text"><small class="text-muted">Last watched episode: </small></p> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% end %>
+</div>
+
+<div class="modal fade" id="episodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><b><i class="title"></i></b></p>
+        <p class="description"></p>
+      </div>
+      <div class="modal-footer">
+        <h6 class="rating mr-auto"></h6>
+        <button type="button" class="btn btn-danger netflix-btn"><a href="https://www.netflix.com/" target=_blank>Watch on Netflix <i class="fa fa-play-circle"></i></a></button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+

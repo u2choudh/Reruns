@@ -1,0 +1,26 @@
+<%= stylesheet_link_tag "welcome.scss.css" %>
+
+<nav class="navbar navbar-dark bg-dark">
+  <h1> Reruns </h1>
+  <%= button_to "Added Shows", '/rerun_favorites', :method => :get, class: "btn btn-danger" %>
+</nav>
+
+<div class="logo-color">
+  <div class="container search-container">
+    <div class="row">
+      <div class="col-md-10">
+        <input class="form-control" id="series-name" placeholder="Series Name">
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-primary series-search">Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container results">
+  <table class="table">
+    <tbody id="search-list">
+    </tbody>
+  </table>
+</div>

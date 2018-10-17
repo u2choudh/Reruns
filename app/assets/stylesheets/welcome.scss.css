@@ -1,0 +1,50 @@
+.logo-color {
+	/*background-color: black;*/
+	height: 400px;
+	padding-top: 110px;
+	background-image: url('download.png');
+	background-size: 1440px;
+}
+
+.logo-container {
+	margin-bottom: 100px;
+}
+
+h1 {
+	color: white;
+}
+
+.main-logo {
+	color: white;
+	opacity: 1;
+	font-size: 60px;
+	/*text-decoration: underline overline black;*/
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+
+.search-container {
+	margin-top: 50px;
+}
+
+.results {
+	margin-top: 50px;
+}
+
+a {
+	color: black;
+}
+
+a:hover{
+	color: black;
+	text-decoration: none;
+}
+
+.table > thead > tr:first-child > td, 
+.table > tbody > tr:first-child > td {
+    border: none;
+}
+
+.table {
+	background-color: rgb(240,240,240, 0.8) 
+}
+

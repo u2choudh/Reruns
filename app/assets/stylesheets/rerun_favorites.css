@@ -1,0 +1,40 @@
+.row {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.card {
+	/*height: 270px;*/
+}
+
+img {
+	max-height: 270px;
+	max-width: 180px;
+}
+
+.year {
+	font-size: 15px;
+}
+
+.list-inline>li {
+	padding-right: 7px;
+	margin-top: 10px;
+}
+
+a {
+	color: white;
+}
+
+a:hover{
+	color: white;
+	text-decoration: none;
+}
+
+h1 {
+	color: white;
+}
+
+.no-shows {
+	margin-top: 50px;
+	font-size: 20px;
+}
