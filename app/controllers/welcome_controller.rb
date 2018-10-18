@@ -1,10 +1,14 @@
 class WelcomeController < ApplicationController
+  include ImdbScraper 
+  
   def index
   end
 
   # Gives search result based on the series name entered
   def search_title
-    series_results = ImdbScraper.new("https://www.imdb.com/search/title?title=#{params[:title]}").search_title
+    reponse = get_response("https://www.imdb.com/search/title?title=#{params[:title]}")
+    # series_results = ImdbScraper.new("https://www.imdb.com/search/title?title=#{params[:title]}").search_title
+    series_results = search_results
 
     respond_to do |format|
       format.json { render json: series_results }
@@ -26,7 +30,10 @@ class WelcomeController < ApplicationController
     season_count = 100
     url = /.*[0-9]{7}/.match(params[:url])[0]
 
-    results = ImdbScraper.new(url + "/episodes?season=#{season_count}").add_new(params[:title], params[:url], params[:rating], params[:year], url)
+    # series = ImdbScraper.new(url + "/episodes?season=#{season_count}").add_new_series(params[:title], params[:url], params[:rating], params[:year], url)
+    reponse = get_response(url + "/episodes?season=#{season_count}")
+    series = add_new_series(params[:title], params[:url], params[:rating], params[:year], url)
+    episodes = add_episodes(url)
     
     render json: true
   end

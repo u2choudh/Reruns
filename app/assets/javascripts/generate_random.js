@@ -38,7 +38,7 @@ $(document).ready(function() {
       	$('#episodeModal .modal-body .description').html(data.description)
       	$('#episodeModal .modal-footer .rating').html(`${data.rating}  <i class="fa fa-star"></i>`)
       	
-      	if (data.netflix_id !== "0") {
+      	if (data.netflix_id !== null) {
       		$('#episodeModal .modal-footer .netflix-btn').html(`<a href="https://www.netflix.com/watch/${data.netflix_id}" target=_blank>Watch on Netflix <i class="fa fa-play-circle"></i></a>`)
       	}
 

@@ -14,12 +14,10 @@ $(document).ready(function() {
       dataType: "json",
       'success' : function(data) {
         displayResults(data)
-        console.log(data)
         return false
       },
       'error' : function(request, error) {
-      	alert(error)
-        alert('Please enter a valid Username')
+        alert('Please enter a valid title name')
         return false
       }
     })
